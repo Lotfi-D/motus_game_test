@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, computed, ref } from 'vue';
 import wordServices from '../services/wordsServices'
 import { storeToRefs } from 'pinia'
 import { useWordsStore } from '@/stores/words'
@@ -15,6 +15,8 @@ let attempt = ref<number>(7)
 const indexLetterToDisplay = ref<number[]>([0])
 const wordToPush = ref<string>('')
 const listWordPushed = ref<string[]>([])
+
+const wordToPushUpperCase = computed(() => wordToPush.value.toUpperCase())
 
 const initListWords = async () => {
   try {
@@ -42,7 +44,7 @@ const initWordToFind = () => {
 }
 
 const submit = () => {
-  listWordPushed.value.push(wordToPush.value)
+  listWordPushed.value.push(wordToPushUpperCase.value)
 
   wordToPush.value = ''
 }

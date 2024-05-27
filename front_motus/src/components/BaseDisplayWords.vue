@@ -16,11 +16,8 @@ const letterVisibilityClass = (index: number) => {
 }
 
 const letterPositionClass = (letter: string, index: number) => {
-  const wordToFindLowerCase = props?.wordToFind?.toLowerCase()
-  const letterLowerCase = letter.toLowerCase()
-
-  if (wordToFindLowerCase?.includes(letterLowerCase)) {
-    if (wordToFindLowerCase[index] === letterLowerCase) {
+  if (props?.wordToFind?.includes(letter)) {
+    if (props?.wordToFind[index] === letter) {
       // I hesitated between using emits or provide inject because we have to send the information to the parent of the parent
       // I chose to make 2 emits, one here and one in the parents because it is only a 2 level parents components 
       emits('findLetter', index)
