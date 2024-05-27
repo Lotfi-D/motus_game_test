@@ -23,6 +23,7 @@ Pour installer et exécuter Motus Game sur votre machine locale, suivez ces éta
    ```bash
    git clone https://github.com/votre-username/motus_game_test.git
    cd motus_game_test
+   cd front_motus
 
 
 2. **Installer les dépendances**
